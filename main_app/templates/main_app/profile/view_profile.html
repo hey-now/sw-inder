@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1> View profile</h1>
+
+<section id="index">
+    <div class="card z-depth-5">
+        <div class="card-image waves-effect waves-block waves-light">
+                <img width="400px" height="600px" class="activator" src="{{ instrument.img_Url }}">
+            </a>
+        </div>
+        <div class="card-content deep-purple lighten-4">
+            <span class="card-title activator white-text text-darken-4">{{ instrument.nickname }}<i class="material-symbols-outlined right">more_vert</i></span>
+            <p><a class="waves-effect waves-light btn" href="{% url 'detail' instrument.id %}">Details Page</a></p>
+        </div>
+        <div class="card-reveal">
+            <span class="card-title">{{ instrument.nickname }}<i class="material-symbols-outlined right">close </i></span>
+            <p>Type: {{ instrument.type }}</p>
+            <p>Brand: {{ instrument.brand }}</p>
+            <p>Model: {{ instrument.model }}</p>
+            <p>Color: {{ instrument.color }}</p>
+            <p>Manufactured Date: {{ instrument.manf_date }}</p>
+        </div>
+    </div>
+    </section>
+
+{% endblock %}
