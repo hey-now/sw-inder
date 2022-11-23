@@ -14,8 +14,8 @@
     <a href="{% url 'home' %}">Home</a>
     <a href="{% url 'about' %}">About</a>
     {% if user.is_authenticated %}
-    <a href="{% url 'create_profile' %}">Create Profile</a>
-    <a href="{% url 'view_profile' %}">View Profile</a>
+    <a href="{% url 'ProfileCreate' %}">Create Profile</a>
+    <a href="{% url 'detail' profile.id %}">View Profile</a>
     <a href="{% url 'interests' %}">Interests</a>
     <a href="{% url 'logout' %}">Log Out</a>
     {% else %}
