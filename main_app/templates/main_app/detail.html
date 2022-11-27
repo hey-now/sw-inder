@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Momma Profile</h1>
+
+{% for p in profile %}
+
+<section id="index">
+  <div class="card z-depth-5">
+      <div class="card-image waves-effect waves-block waves-light">
+              <img width="400px" height="600px" class="activator" src="">
+          </a>
+      </div>
+      <div class="card-content deep-purple lighten-4">
+          <span class="card-title activator white-text text-darken-4">
+            {{ p.name }}
+            <p>Species: {{ p.species }}</p>
+            <p>Hair: {{ p.hair_color }}</p>
+            <p>Height: {{ p.height }}</p>
+            <p>Homeworld: {{ p.homeworld }}</p>
+            <p>About: {{ p.about }}</p>
+      </div>
+  </div>
+  </section>
+
+
+{% endfor %}
+
+{%  endblock %}

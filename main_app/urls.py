@@ -7,6 +7,7 @@ urlpatterns = [
   path('about/', views.about, name='about'),
   path('interests/', views.interests, name='interests'),
   path('profiles/<int:profile_id>/add_photo/', views.add_photo, name='add_photo'),
-  path('profiles/', views.profile_detail.as_view(), name='detail'),
+  path('detail/', views.profile_detail, name='detail'),
+  path('matches/', views.matches, name='matches'),
   path('profiles/create_profile', views.ProfileCreate.as_view(), name='ProfileCreate'),
 ]
