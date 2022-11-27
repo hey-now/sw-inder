@@ -7,6 +7,6 @@ urlpatterns = [
   path('about/', views.about, name='about'),
   path('interests/', views.interests, name='interests'),
   path('profiles/<int:profile_id>/add_photo/', views.add_photo, name='add_photo'),
-  path('profiles/<int:profile_id>/', views.profile_detail, name='detail'),
+  path('profiles/', views.profile_detail.as_view(), name='detail'),
   path('profiles/create_profile', views.ProfileCreate.as_view(), name='ProfileCreate'),
 ]
