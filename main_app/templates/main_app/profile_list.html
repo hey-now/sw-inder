@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Endzone Profile</h1>
+
+{% if user %}
+{% for p in profile %}
+<section id="index">
+  <div class="card z-depth-5">
+      <div class="card-image waves-effect waves-block waves-light">
+      </div>
+      <div class="card-reveal">
+          <p>Type: {{ p.name}}</p>
+          <p>Brand: {{ p.species}}</p>
+          <p>Model: {{ p.hair_color }}</p>
+          <p>Color: {{ p.height }}</p>
+          <p>Manufactured Date: {{ p.about }}</p>
+      </div>
+  </div>
+  </section>
+{% endfor %}
+{% endif %}
+{%  endblock %}
