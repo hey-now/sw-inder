@@ -66,7 +66,20 @@ def matches(request):
   r = requests.get(baseUrl + 'people/' + str(rand_num))
   people = r.json()
   name = people['name']
-  return render(request, 'main_app/matches.html', { 'name': name })
+  species = people['species']
+  if not species:
+    species_name = 'N/A'
+  else:
+    species_req = requests.get(species[0])
+    species_data = species_req.json()
+    species_name = species_data['name']
+  hair_color = people['hair_color']
+  gender = people['gender']
+  homeworld = people['homeworld']
+  homeworld_req = requests.get(homeworld)
+  homeworld_data = homeworld_req.json()
+  homeworld_name = homeworld_data['name']
+  return render(request, 'main_app/matches.html', { 'name': name, 'hair_color': hair_color, 'gender': gender, 'homeworld_name': homeworld_name, 'species_name': species_name})
 
 def add_photo(request):
   photo_file = request.FILES.get('photo-file', None)
