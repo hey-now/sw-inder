@@ -11,13 +11,14 @@
 </head>
 <body>
   <nav>
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'home' %}">Home </a>|
+    <a href="{% url 'about' %}">About </a>|
     {% if user.is_authenticated %}
     <!-- <a href="{% url 'ProfileCreate' %}">Create Profile</a> -->
-    <a href="{% url 'detail' %}">View Profile</a>
-    <a href="{% url 'interests' %}">Interests</a>
-    <a href="{% url 'logout' %}">Log Out</a>
+    <a href="{% url 'detail' %}">View Profile </a>|
+    <a href="{% url 'interests' %}">Interests </a>|
+    <a href="{% url 'matches' %}">Matches </a>|
+    <a href="{% url 'logout' %}">Log Out </a>|
     {% else %}
     <a href="{% url 'signup' %}">Sign Up</a>
     <a href="{% url 'login' %}">Login</a>

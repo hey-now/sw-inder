@@ -20,7 +20,7 @@ class Profile(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def get_absolute_url(self):
-    return reverse('detail', kwargs={'profile_id': self.id})
+    return reverse('detail')
 
 class Photo(models.Model):
     url = models.CharField(max_length=200)
