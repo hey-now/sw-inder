@@ -21,6 +21,42 @@ people = r.json()
 
 
 
+
+img = [
+  'https://imgur.com/b4GrpJb.png', # luke and numb 1
+  'https://imgur.com/IFG02gN.pnng',
+  'https://imgur.com/5ebf0mo.png',
+  'https://imgur.com/1HICt2k.jpeg',  # darth vader and num 4
+  'https://imgur.com/HQjQeIx.png', #leia
+  'https://imgur.com/kh6Oqlo.png',  #owen lars
+  'https://imgur.com/HzTNVj1.png',  # beru
+  'https://imgur.com/EUAFFcA.png', # r5-d4
+  'https://imgur.com/aoqXU2e.png',  #  biggs
+  'https://imgur.com/zfYrKRx.png',  # obi wan
+  'https://imgur.com/57ngyTT.png',  # anakin
+  'https://imgur.com/oRj5kom.png',  # wwillhuff
+  'https://imgur.com/7GlhiV6.png', # chewy
+  'https://imgur.com/ZeuboXl.png',  # han solo
+  'https://imgur.com/QMu4ni1.png', # greedo
+  'https://imgur.com/VBxeNwT.png',  # jabba
+  'https://imgur.com/UQvY2ec.png',  # wedge antilles
+  'https://imgur.com/Lcwknoz.png', # jek tono porkins
+  'https://imgur.com/lzHfii9.png', #  yoda
+  'https://imgur.com/4W39iIq.png', # palpy
+  'https://imgur.com/h7PrcY2.png',  #  boba
+  'https://imgur.com/84eB0oN.png', # ig-88
+  'https://imgur.com/1bKIIv8.png',  # bossk
+  'https://imgur.com/OXaYGXX.png', #  lando
+  'https://imgur.com/WG4qXwI.png',  # lobot
+  'https://imgur.com/rsLgCOM.png', # ackbar
+  'https://imgur.com/R3F3LnB.png', # mon mothma
+  'https://imgur.com/RQ6yHFg.png',  # arvel crynyd
+  'https://imgur.com/jDhVXQy.png',  #  wicket
+  'https://imgur.com/6qamhZu.png', # nien numb
+]
+
+
+
 # Create your views here.
 def signup(request):
   error_message = ''
@@ -63,6 +99,7 @@ def interests(request):
 def matches(request):
   rand_num = random.randint(1, 82)
   baseUrl = 'https://swapi.dev/api/'
+  img_gen = img[rand_num - 1]
   r = requests.get(baseUrl + 'people/' + str(rand_num))
   people = r.json()
   name = people['name']
@@ -73,13 +110,13 @@ def matches(request):
     species_req = requests.get(species[0])
     species_data = species_req.json()
     species_name = species_data['name']
-  hair_color = people['hair_color']
-  gender = people['gender']
+  hair_color = people['hair_color'].capitalize()
+  gender = people['gender'].capitalize()
   homeworld = people['homeworld']
   homeworld_req = requests.get(homeworld)
   homeworld_data = homeworld_req.json()
   homeworld_name = homeworld_data['name']
-  return render(request, 'main_app/matches.html', { 'name': name, 'hair_color': hair_color, 'gender': gender, 'homeworld_name': homeworld_name, 'species_name': species_name})
+  return render(request, 'main_app/matches.html', { 'name': name, 'hair_color': hair_color, 'gender': gender, 'homeworld_name': homeworld_name, 'species_name': species_name, 'img_gen': img_gen})
 
 def add_photo(request):
   photo_file = request.FILES.get('photo-file', None)
