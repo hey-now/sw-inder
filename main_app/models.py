@@ -21,6 +21,9 @@ class Profile(models.Model):
 
   def get_absolute_url(self):
     return reverse('detail')
+  
+  def __str__(self):
+    return f"Profile Id: {self.id}, User: {self.user}"
 
 class Photo(models.Model):
     url = models.CharField(max_length=200)

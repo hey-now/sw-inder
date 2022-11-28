@@ -24,35 +24,62 @@ people = r.json()
 
 img = [
   'https://imgur.com/b4GrpJb.png', # luke and numb 1
-  'https://imgur.com/IFG02gN.pnng',
-  'https://imgur.com/5ebf0mo.png',
+  'https://imgur.com/IFG02gN.pnng', # c-3po 2
+  'https://imgur.com/5ebf0mo.png', # r2-d2 3
   'https://imgur.com/1HICt2k.jpeg',  # darth vader and num 4
-  'https://imgur.com/HQjQeIx.png', #leia
-  'https://imgur.com/kh6Oqlo.png',  #owen lars
-  'https://imgur.com/HzTNVj1.png',  # beru
-  'https://imgur.com/EUAFFcA.png', # r5-d4
-  'https://imgur.com/aoqXU2e.png',  #  biggs
-  'https://imgur.com/zfYrKRx.png',  # obi wan
-  'https://imgur.com/57ngyTT.png',  # anakin
-  'https://imgur.com/oRj5kom.png',  # wwillhuff
-  'https://imgur.com/7GlhiV6.png', # chewy
-  'https://imgur.com/ZeuboXl.png',  # han solo
-  'https://imgur.com/QMu4ni1.png', # greedo
-  'https://imgur.com/VBxeNwT.png',  # jabba
-  'https://imgur.com/UQvY2ec.png',  # wedge antilles
-  'https://imgur.com/Lcwknoz.png', # jek tono porkins
-  'https://imgur.com/lzHfii9.png', #  yoda
-  'https://imgur.com/4W39iIq.png', # palpy
-  'https://imgur.com/h7PrcY2.png',  #  boba
-  'https://imgur.com/84eB0oN.png', # ig-88
-  'https://imgur.com/1bKIIv8.png',  # bossk
-  'https://imgur.com/OXaYGXX.png', #  lando
-  'https://imgur.com/WG4qXwI.png',  # lobot
-  'https://imgur.com/rsLgCOM.png', # ackbar
-  'https://imgur.com/R3F3LnB.png', # mon mothma
-  'https://imgur.com/RQ6yHFg.png',  # arvel crynyd
-  'https://imgur.com/jDhVXQy.png',  #  wicket
-  'https://imgur.com/6qamhZu.png', # nien numb
+  'https://imgur.com/HQjQeIx.png', #leia 5
+  'https://imgur.com/kh6Oqlo.png',  #owen lars 6
+  'https://imgur.com/HzTNVj1.png',  # beru 7
+  'https://imgur.com/EUAFFcA.png', # r5-d4 8
+  'https://imgur.com/aoqXU2e.png',  #  biggs 9
+  'https://imgur.com/zfYrKRx.png',  # obi wan 10
+  'https://imgur.com/57ngyTT.png',  # anakin 11
+  'https://imgur.com/oRj5kom.png',  # wwillhuff 12
+  'https://imgur.com/7GlhiV6.png', # chewy 13
+  'https://imgur.com/ZeuboXl.png',  # han solo 14
+  'https://imgur.com/QMu4ni1.png', # greedo 15
+  'https://imgur.com/VBxeNwT.png',  # jabba 16
+  'https://imgur.com/Z5s6APX.png',   # gorilla with sunglasses 17
+  'https://imgur.com/UQvY2ec.png',  # wedge antilles 18
+  'https://imgur.com/Lcwknoz.png', # jek tono porkins 19
+  'https://imgur.com/lzHfii9.png', #  yoda 20
+  'https://imgur.com/4W39iIq.png', # palpy 21
+  'https://imgur.com/h7PrcY2.png',  #  boba 22
+  'https://imgur.com/84eB0oN.png', # ig-88 23
+  'https://imgur.com/1bKIIv8.png',  # bossk 24
+  'https://imgur.com/OXaYGXX.png', #  lando 25
+  'https://imgur.com/WG4qXwI.png',  # lobot 26
+  'https://imgur.com/rsLgCOM.png', # ackbar 27
+  'https://imgur.com/R3F3LnB.png', # mon mothma 28
+  'https://imgur.com/RQ6yHFg.png',  # arvel crynyd 29
+  'https://imgur.com/jDhVXQy.png',  #  wicket 30
+  'https://imgur.com/6qamhZu.png', # nien numb 31
+  'https://imgur.com/j5JaqM1.png', # qui gon 32
+  'https://imgur.com/JJF7FRf.png', # nute gunray 33
+  'https://imgur.com/w732wXd.png', # finis valorum 34
+  'https://imgur.com/lI7gdQg.png', # padme 35
+  'https://imgur.com/8Q4W7jG.png', # jar jar 36
+  'https://imgur.com/rmI8rgU.png', # roos tarpals 37
+  'https://imgur.com/yXDhoUQ.png', # rugor nass 38
+  'https://imgur.com/LpwGYws.png', # ric olie 39
+  'https://imgur.com/EIMot31.png', # watto 40
+  'https://imgur.com/tSoIPDF.png', # sebulba 41
+  'https://imgur.com/hWfV41y.png', # quarsh panaka 42
+  'https://imgur.com/kBNvrrK.png', # shmi 43
+  'https://imgur.com/NF3CTDm.png', # darth maul 44
+  'https://imgur.com/lmd9feE.png', # bib fortuna 45
+  'https://imgur.com/IDSVFMZ.png', # ayla secura 46
+  'https://imgur.com/nVw9ijO.png', # ratts tyerel 47
+  'https://imgur.com/kfIP4li.png', # dud bolt 48
+  'https://imgur.com/w6blxA0.png', # gasgano 49
+  'https://imgur.com/KTBo3pf.png', # ben quadinaros 50
+  'https://imgur.com/HPTJokQ.png', # mace windu 51
+  'https://imgur.com/hVYXuwT.png', # ki-adi-mundi 52
+  'https://imgur.com/Ncjhgsr.png', # kit fisto 53
+  'https://imgur.com/3IEiIvZ.png', # eeth koth 54
+  'https://imgur.com/KAFQrwW.png', # adi gallia 55
+  'https://imgur.com/rL8RDlu.png', # saesee tiin 56
+  'https://imgur.com/3ErWWx1.png', # yarael poof 57
 ]
 
 
@@ -80,9 +107,14 @@ class ProfileCreate(LoginRequiredMixin, CreateView) :
     form.instance.user = self.request.user
     return super().form_valid(form)
 
+class ProfileUpdate(UpdateView):
+  model = Profile
+  
+  fields = ['name', 'species', 'hair_color', 'height', 'homeworld', 'about']
+
 @login_required
 def profile_detail(request):
-  profile = Profile.objects.all() 
+  profile = Profile.objects.get(user=request.user)
   return render(request, 'main_app/detail.html', { 'profile': profile })
 
 def home(request):
@@ -99,13 +131,17 @@ def interests(request):
 def matches(request):
   rand_num = random.randint(1, 82)
   baseUrl = 'https://swapi.dev/api/'
-  img_gen = img[rand_num - 1]
   r = requests.get(baseUrl + 'people/' + str(rand_num))
   people = r.json()
   name = people['name']
   species = people['species']
+  img_gen = []
+  try: 
+    img_gen = img[rand_num - 1]
+  except IndexError:
+    pass
   if not species:
-    species_name = 'N/A'
+    species_name = 'Unidentified Life-Form'
   else:
     species_req = requests.get(species[0])
     species_data = species_req.json()
