@@ -1,6 +1,9 @@
 import os
 import uuid
 import boto3
+import requests
+import random
+from pprint import pprint
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -10,6 +13,13 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 
 from .models import Profile, Photo
+
+baseUrl = 'https://swapi.dev/api/'
+r = requests.get(baseUrl + 'people/1')
+r2 = requests.get('http://swapi.dev/api/planets/1')
+people = r.json()
+
+
 
 # Create your views here.
 def signup(request):
@@ -34,9 +44,10 @@ class ProfileCreate(LoginRequiredMixin, CreateView) :
     form.instance.user = self.request.user
     return super().form_valid(form)
 
-
-class profile_detail(ListView):
-  model = Profile
+@login_required
+def profile_detail(request):
+  profile = Profile.objects.all() 
+  return render(request, 'main_app/detail.html', { 'profile': profile })
 
 def home(request):
   return render(request, 'home.html')
@@ -47,6 +58,28 @@ def about(request):
 @login_required
 def interests(request):
   return render(request, 'main_app/interests.html')
+
+@login_required
+def matches(request):
+  rand_num = random.randint(1, 82)
+  baseUrl = 'https://swapi.dev/api/'
+  r = requests.get(baseUrl + 'people/' + str(rand_num))
+  people = r.json()
+  name = people['name']
+  species = people['species']
+  if not species:
+    species_name = 'N/A'
+  else:
+    species_req = requests.get(species[0])
+    species_data = species_req.json()
+    species_name = species_data['name']
+  hair_color = people['hair_color']
+  gender = people['gender']
+  homeworld = people['homeworld']
+  homeworld_req = requests.get(homeworld)
+  homeworld_data = homeworld_req.json()
+  homeworld_name = homeworld_data['name']
+  return render(request, 'main_app/matches.html', { 'name': name, 'hair_color': hair_color, 'gender': gender, 'homeworld_name': homeworld_name, 'species_name': species_name})
 
 def add_photo(request):
   photo_file = request.FILES.get('photo-file', None)
@@ -62,6 +95,9 @@ def add_photo(request):
       print('An error occured uploading file to S3')
       print(e)
   return redirect('profile_form.html')
+
+
+
 
 # @login_required
 # def profile_detail(request):
