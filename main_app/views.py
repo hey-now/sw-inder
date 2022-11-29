@@ -20,7 +20,6 @@ people = r.json()
 
 
 
-
 img = [
   'https://imgur.com/b4GrpJb.png', # luke and numb 1
   'https://imgur.com/IFG02gN.pnng', # c-3po 2
@@ -79,8 +78,32 @@ img = [
   'https://imgur.com/KAFQrwW.png', # adi gallia 55
   'https://imgur.com/rL8RDlu.png', # saesee tiin 56
   'https://imgur.com/3ErWWx1.png', # yarael poof 57
+  'https://imgur.com/C3Pfsph.png', # plo koon 58
+  'https://imgur.com/ZAWmhFh.png', # mas amedda 60
+  'https://imgur.com/zQjnBsM.png', # corde 61
+  'https://imgur.com/bmG842Q.png', # cliegg lars 62
+  'https://imgur.com/AuUYvmi.png', # poggle the lesser 63
+  'https://imgur.com/vjhvB2l.png', # luminara unduli 64
+  'https://imgur.com/nfQCwy9.png', # barriss offee 65
+  'https://imgur.com/umvhDi7.png', # dorme 66
+  'https://imgur.com/HdS9kmU.png', # dooku 67
+  'https://imgur.com/ZAAC2bL.png', # bail prestor organa 68
+  'https://imgur.com/QrPPpg0.png', # jango fett 69
+  'https://imgur.com/GoqMxOg.png', # zam wesell 70
+  'https://imgur.com/Ev9EqQL.png', # dexter jettster 71
+  'https://imgur.com/pymd4Mq.png', # lamu su 72
+  'https://imgur.com/la2QKd0.png', # taun we 73
+  'https://imgur.com/ogOfqx1.png', # taun we 74
+  'https://imgur.com/P6i7utV.png', # r4-p17 75
+  'https://imgur.com/9Fzcerb.png', # wat tambor 76
+  'https://imgur.com/8qeRmgW.png', # san hill 77
+  'https://imgur.com/HkoYTkJ.png', # shaak ti 78
+  'https://imgur.com/kVxg1Jv.png', # grievous 79
+  'https://imgur.com/3TA8x68.png', # tarfful 80
+  'https://imgur.com/EYY4VgO.png', # raymus antilles 81
+  'https://imgur.com/iGmB3mY.png', # sly moore 82
+  'https://imgur.com/COrKVcP.png', # tion medon 83
 ]
-
 
 
 # Create your views here.
@@ -146,15 +169,15 @@ class InterestUpdate(UpdateView):
 
 class InterestDelete(DeleteView):
   model = Interest
-  success_url = '/interests'
+  success_url = 'main_app/detail.html'
 
 def assoc_interest(request, profile_id, interest_id):
   Profile.objects.get(id=profile_id).interests.add(interest_id)
-  return redirect('detail', profile_id=profile_id)
+  return redirect('detail')
 
 def remove_interest(request, profile_id, interest_id):
   Profile.objects.get(id=profile_id).interests.remove(interest_id)
-  return redirect('detail', profile_id=profile_id)
+  return redirect('detail')
 
 @login_required
 def matches(request):
