@@ -41,7 +41,7 @@
             <div class="card">
               <div class="card-content">
                 <span class="card-title">
-                  <p>{{ interest }}</p>
+                  <p>{{ interest.interest }}</p>
                 </span>
               </div>
               <form action="{% url 'remove_interest' profile.id interest.id %}" method="POST">
@@ -61,11 +61,11 @@
             <div class="card">
               <div class="card-content">
                 <span class="card-title">
-                {{ interest }}
+                {{ interest.interest }}
                 </span>
               </div>
               <div class="card-action">
-                <form action="{% url 'assoc_toy' profile.id interest.id %}" method="POST">
+                <form action="{% url 'assoc_interest' profile.id interest.id %}" method="POST">
                   {% csrf_token %}
                   <button type="submit" class="btn">Add</button>
                 </form>
