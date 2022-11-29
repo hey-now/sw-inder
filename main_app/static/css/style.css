@@ -1,8 +1,16 @@
-.card {
-  /* height: 200px; */
-  width: 25%;
+.card { width: 100px; max-height: 100px;}
+
+@media only screen
+and (max-width : 480px) {
+.card { width:100px;}
 }
 
-.cardmatch{
-  height: 600px;
+
+@media only screen
+and (max-width : 767px) {
+.card { width:400px;}
+}
+
+.container {
+  height: 5vmin;
 }

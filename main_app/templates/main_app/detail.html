@@ -9,22 +9,75 @@
   <div class="row">
     <div class="col s12 m7">
       <div class="card">
-        <div class="card-image">
-          <img src="images/sample-1.jpg">
-          <span class="card-title">Card Title</span>
+        <div class="card-image card" >
+          <img src="{{photo.url}}">
         </div>
         <div class="card-content">
-            <p>Species: {{ profile.species }}</p>
-            <p>Hair: {{ profile.hair_color }}</p>
-            <p>Height: {{ profile.height }}</p>
-            <p>Homeworld: {{ profile.homeworld }}</p>
-            <p>About: {{ profile.about }}</p>
-      </div>
-      <a href="{% url 'profile_update' profile.id %}" class="btn">Edit!</a>
+          <p>Species: {{ profile.species }}</p>
+          <p>Hair: {{ profile.hair_color }}</p>
+          <p>Height: {{ profile.height }}</p>
+          <p>Homeworld: {{ profile.homeworld }}</p>
+          <p>About: {{ profile.about }}</p>
+        </div>
+        <a href="{% url 'profile_update' profile.id %}" class="btn">Edit!</a>
       </div>
     </div>
+    {% for photo in profile.photo_set.all %}
+      <img class="responsive-img card-panel" src="{{photo.url}}">
+    {% empty %}
+      <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+    {% endfor %}
+    <form action="{% url 'add_photo' profile.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+      {% csrf_token %}
+      <input type="file" name="photo-file">
+      <br><br>
+      <button type="submit" class="btn">Upload Photo</button>
+    </form>
+    <div class="row">
+      <div class="col s6">
+        <h3>Your Interests</h3>
+        {% if profile.interests.count %}
+          {% for interest in profile.interests.all %}
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">
+                  <p>{{ interest }}</p>
+                </span>
+              </div>
+              <form action="{% url 'remove_interest' profile.id interest.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn">Remove</button>
+              </form>
+            </div>
+          {% endfor %}
+        {% else %}
+          <h5>No Interests?</h5>
+        {% endif %}
+      </div>
+      <div class="col s6">
+        <h3>Are you interested in:</h3>
+        {% if interests.count %}
+          {% for interest in interests.all %}
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">
+                {{ interest }}
+                </span>
+              </div>
+              <div class="card-action">
+                <form action="{% url 'assoc_toy' profile.id interest.id %}" method="POST">
+                  {% csrf_token %}
+                  <button type="submit" class="btn">Add</button>
+                </form>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <h5>Pick an Interest!</h5>
+        {% endif %}
+      </div>
   </div>
-</div>
-  </section>
+  </div>
+</section>
 
 {%  endblock %}

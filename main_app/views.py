@@ -11,8 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-
-from .models import Profile, Photo
+from .models import Profile, Photo, Interest
 
 baseUrl = 'https://swapi.dev/api/'
 r = requests.get(baseUrl + 'people/1')
@@ -109,13 +108,15 @@ class ProfileCreate(LoginRequiredMixin, CreateView) :
 
 class ProfileUpdate(UpdateView):
   model = Profile
-  
   fields = ['name', 'species', 'hair_color', 'height', 'homeworld', 'about']
 
 @login_required
 def profile_detail(request):
   profile = Profile.objects.get(user=request.user)
-  return render(request, 'main_app/detail.html', { 'profile': profile })
+  return render(request, 'main_app/detail.html', { 
+    'profile': profile,
+    'interests': interests
+  })
 
 def home(request):
   return render(request, 'home.html')
@@ -126,6 +127,32 @@ def about(request):
 @login_required
 def interests(request):
   return render(request, 'main_app/interests.html')
+
+class InterestList(ListView):
+  model = Interest
+
+class InterestDetail(DetailView):
+  model = Interest
+
+class InterestCreate(CreateView):
+  model = Interest
+  fields = '__all__'
+
+class InterestUpdate(UpdateView):
+  model = Interest
+  fields = ['__all__']
+
+class InterestDelete(DeleteView):
+  model = Interest
+  success_url = '/interests'
+
+def assoc_interest(request, profile_id, interest_id):
+  Profile.objects.get(id=profile_id).interests.add(interest_id)
+  return redirect('detail', profile_id=profile_id)
+
+def remove_interest(request, profile_id, interest_id):
+  Profile.objects.get(id=profile_id).interests.remove(interest_id)
+  return redirect('detail', profile_id=profile_id)
 
 @login_required
 def matches(request):
@@ -154,7 +181,7 @@ def matches(request):
   homeworld_name = homeworld_data['name']
   return render(request, 'main_app/matches.html', { 'name': name, 'hair_color': hair_color, 'gender': gender, 'homeworld_name': homeworld_name, 'species_name': species_name, 'img_gen': img_gen})
 
-def add_photo(request):
+def add_photo(request, profile_id):
   photo_file = request.FILES.get('photo-file', None)
   if photo_file:
     s3 = boto3.client('s3')
@@ -163,11 +190,13 @@ def add_photo(request):
       bucket = os.environ['S3_BUCKET']
       s3.upload_fileobj(photo_file, bucket, key)
       url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
-      Photo.objects.create(url=url)
+      Photo.objects.create(url=url, profile_id=profile_id)
     except Exception as e:
       print('An error occured uploading file to S3')
       print(e)
-  return redirect('profile_form.html')
+  return redirect('detail')
+
+
 
 
 
