@@ -113,9 +113,11 @@ class ProfileUpdate(UpdateView):
 @login_required
 def profile_detail(request):
   profile = Profile.objects.get(user=request.user)
+  id_list = profile.interests.all().values_list('id')
+  interests_profile_doesnt = Interest.objects.exclude(id__in=id_list)
   return render(request, 'main_app/detail.html', { 
     'profile': profile,
-    'interests': interests
+    'interests': interests_profile_doesnt
   })
 
 def home(request):
