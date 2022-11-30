@@ -79,7 +79,8 @@ img = [
   'https://imgur.com/rL8RDlu.png', # saesee tiin 56
   'https://imgur.com/3ErWWx1.png', # yarael poof 57
   'https://imgur.com/C3Pfsph.png', # plo koon 58
-  'https://imgur.com/ZAWmhFh.png', # mas amedda 60
+  'https://imgur.com/jFAUk39.png', # mas amedda 59
+  'https://imgur.com/ZAWmhFh.png', # gregar typho 60
   'https://imgur.com/zQjnBsM.png', # corde 61
   'https://imgur.com/bmG842Q.png', # cliegg lars 62
   'https://imgur.com/AuUYvmi.png', # poggle the lesser 63
