@@ -1,124 +1,192 @@
-.card { width: 100px; max-height: 100px;}
+* {
+  font-family: 'Russo One', sans-serif;
+}
 
-@media only screen
-and (max-width : 480px) {
-.card { width:100px;}
+.card {
+  color: black;
+  background-color: rgba(223, 104, 91);
 }
 
 
-@media only screen
-and (max-width : 767px) {
-.card { width:400px;}
-}
-
-.container {
-  height: 5vmin;
-}
-
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  text-decoration: none;
-  font-family: 'Josefin Sans', sans-serif;
-}
-
-body{
-   background-color: #f3f5f9;
-}
-
-.wrapper{
-  display: flex;
-  position: relative;
-}
-
-.wrapper .sidebar{
-  width: 200px;
-  height: 100%;
-  background: #4b4276;
-  padding: 30px 0px;
-  position: fixed;
-}
-
-.wrapper .sidebar h2{
-  color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.wrapper .sidebar ul li{
-  padding: 15px;
-  border-bottom: 1px solid #bdb8d7;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  border-top: 1px solid rgba(255,255,255,0.05);
-}    
-
-.wrapper .sidebar ul li a{
-  color: #bdb8d7;
-  display: block;
-}
-
-.wrapper .sidebar ul li a .fas{
-  width: 25px;
-}
-
-.wrapper .sidebar ul li:hover{
-  background-color: #594f8d;
-}
-    
-.wrapper .sidebar ul li:hover a{
-  color: #fff;
-}
- 
-.wrapper .sidebar .social_media{
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-}
-
-.wrapper .sidebar .social_media a{
-  display: block;
-  width: 40px;
-  background: #594f8d;
-  height: 40px;
-  line-height: 45px;
-  text-align: center;
-  margin: 0 5px;
-  color: #bdb8d7;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.wrapper .main_content{
-  width: 100%;
-  margin-left: 200px;
-}
-
-.wrapper .main_content .header{
-  padding: 20px;
-  background: #fff;
-  color: #717171;
-  border-bottom: 1px solid #e0e4e8;
-}
-
-.wrapper .main_content .info{
-  margin: 20px;
-  color: #717171;
-  line-height: 25px;
-}
-
-.wrapper .main_content .info div{
-  margin-bottom: 20px;
-}
-
-@media (max-height: 500px){
-  .social_media{
-    display: none !important;
+@media only screen and (max-width : 480px) {
+  .card {
+    width: 100px;
   }
+}
+
+@media only screen and (max-width : 767px) {
+  .card {
+    width: 400px;
+  }
+}
+
+.brand-logo {
+  margin-top: 15px;
+}
+
+nav ul a li,
+nav .brand-logo {
+  color: grey;
+}
+
+.text {
+  z-index: 1;
+}
+
+p {
+  line-height: 2rem;
+  font-size: 25px;
+}
+
+
+
+:root {
+  --white: #f8f8f8;
+  --black: #222;
+  --salmon: #f1ab86;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font: 20px/28px "Questrial", sans-serif;
+  color: var(--white);
+  background-image: url("https://imgur.com/VNSUunJ.jpeg");
+  background-position: cover;
+  background-size: 100%;
+}
+
+/* MAIN RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.section {
+  padding: 0 15px;
+  background-image: url("");
+}
+
+.section-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 4000px;
+  margin: 0 auto;
+}
+
+.section-hero .h1 {
+  font-size: 20vmin;
+  line-height: 0.9;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 10px #1a1423;
+}
+
+.section-hero .hero-title-clone {
+  position: absolute;
+  /**
+    * You can optionally apply 
+    * initial top & left values
+    * that will be overriden through JS
+    */
+  /*top: 0;
+  left: 0;*/
+  color: var(--salmon);
+  /*z-index: 1;*/
+}
+
+.section-hero .hero-img-wrapper {
+  position: relative;
+  margin-top: -10vh;
+  overflow: hidden;
+}
+
+.section-hero .hero-img-wrapper img {
+  border-radius: 10px;
+  height: 1400px;
+}
+
+.section-hero~.section {
+  position: relative;
+  z-index: 2;
+}
+
+.section-text {
+  /* background: url(https://imgur.com/rnydR6N.gif) no-repeat
+    fixed center right / cover; */
+  background-color: rgba(223, 104, 91);
+  margin-top: 30vh;
+  max-height: 500px;
+}
+
+.section-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(56, 36, 52, 0.5);
+}
+
+.section-text div {
+  position: relative;
+  max-width: 700px;
+  padding: 50px 0;
+  margin: 0 auto;
+}
+
+.section-text p {
+  margin-top: 20px;
+}
+
+.section-last {
+  text-align: center;
+  /* padding: 15vh 15px; */
+  font-size: 5vmin;
+  line-height: 1;
+  background-color: rgba(92, 40, 48);
+  margin-bottom: 150px;
+}
+
+.section-last p {
+  margin-top: 5px;
+}
+
+/* .notification {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  background: black;
+} */
+
+/* FOOTER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-footer {
+  position: fixed;
+  right: 0;
+  bottom: 100px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  z-index: 2;
+  font-size: 16px;
+  color: var(--black);
+}
+
+.page-footer a {
+  display: flex;
+  margin-left: 4px;
 }

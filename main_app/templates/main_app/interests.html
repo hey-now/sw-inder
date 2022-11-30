@@ -6,27 +6,27 @@
   <input type="checkbox">Outdoors
   <input type="checkbox">Traveling
   <input type="checkbox">Museums
-  <input type="checkbox">Staying Indoors 
+  <input type="checkbox">Staying Indoors
 </ul>
 {% for int in interest_list %}
-  <a href="{% url 'interest_detail' interest.id %}">
-    <div class="card">
-        <div class="card-content">
-            <span class="card-title">{{ interest }}</span>
-        </div>
+<a href="{% url 'interest_detail' interest.id %}">
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ interest }}</span>
     </div>
-  </a>
+  </div>
+</a>
 {% endfor %}
 {% if object %}
-    <h1>Edit <span class="teal-text">{{object.interest}}</span></h1>
-  {% else %}
-    <h1>Add interest</h1>
-  {% endif %}
+<h1>Edit <span class="teal-text">{{object.interest}}</span></h1>
+{% else %}
+<h1>Add interest</h1>
+{% endif %}
 <form action="{% url 'interest_create' %}" method="POST">
   <!-- <input type="textarea" rows="4" cols="20"> -->
   {% csrf_token %}
   <table>
-  <textarea name="" id="" cols="30" rows="10"></textarea>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
   </table>
   <input type="submit" value="Submit">
 </form>

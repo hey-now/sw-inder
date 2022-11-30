@@ -22,35 +22,35 @@ people = r.json()
 
 img = [
   'https://imgur.com/b4GrpJb.png', # luke and numb 1
-  'https://imgur.com/IFG02gN.pnng', # c-3po 2
+  'https://imgur.com/IFG02gN.png', # c-3po 2
   'https://imgur.com/5ebf0mo.png', # r2-d2 3
-  'https://imgur.com/1HICt2k.jpeg',  # darth vader and num 4
-  'https://imgur.com/HQjQeIx.png', #leia 5
-  'https://imgur.com/kh6Oqlo.png',  #owen lars 6
-  'https://imgur.com/HzTNVj1.png',  # beru 7
+  'https://imgur.com/1HICt2k.jpeg',# darth vader and num 4
+  'https://imgur.com/HQjQeIx.png', # leia 5
+  'https://imgur.com/kh6Oqlo.png', # owen lars 6
+  'https://imgur.com/HzTNVj1.png', # beru 7
   'https://imgur.com/EUAFFcA.png', # r5-d4 8
-  'https://imgur.com/aoqXU2e.png',  #  biggs 9
-  'https://imgur.com/zfYrKRx.png',  # obi wan 10
-  'https://imgur.com/57ngyTT.png',  # anakin 11
-  'https://imgur.com/oRj5kom.png',  # wwillhuff 12
+  'https://imgur.com/aoqXU2e.png', # biggs 9
+  'https://imgur.com/zfYrKRx.png', # obi wan 10
+  'https://imgur.com/57ngyTT.png', # anakin 11
+  'https://imgur.com/oRj5kom.png', # wwillhuff 12
   'https://imgur.com/7GlhiV6.png', # chewy 13
-  'https://imgur.com/ZeuboXl.png',  # han solo 14
+  'https://imgur.com/ZeuboXl.png', # han solo 14
   'https://imgur.com/QMu4ni1.png', # greedo 15
-  'https://imgur.com/VBxeNwT.png',  # jabba 16
-  'https://imgur.com/Z5s6APX.png',   # gorilla with sunglasses 17
-  'https://imgur.com/UQvY2ec.png',  # wedge antilles 18
+  'https://imgur.com/VBxeNwT.png', # jabba 16
+  'https://imgur.com/Z5s6APX.png', # gorilla with sunglasses 17
+  'https://imgur.com/UQvY2ec.png', # wedge antilles 18
   'https://imgur.com/Lcwknoz.png', # jek tono porkins 19
-  'https://imgur.com/lzHfii9.png', #  yoda 20
+  'https://imgur.com/lzHfii9.png', # yoda 20
   'https://imgur.com/4W39iIq.png', # palpy 21
-  'https://imgur.com/h7PrcY2.png',  #  boba 22
+  'https://imgur.com/h7PrcY2.png', # oba 22
   'https://imgur.com/84eB0oN.png', # ig-88 23
-  'https://imgur.com/1bKIIv8.png',  # bossk 24
-  'https://imgur.com/OXaYGXX.png', #  lando 25
-  'https://imgur.com/WG4qXwI.png',  # lobot 26
+  'https://imgur.com/1bKIIv8.png', # bossk 24
+  'https://imgur.com/OXaYGXX.png', # lando 25
+  'https://imgur.com/WG4qXwI.png', # lobot 26
   'https://imgur.com/rsLgCOM.png', # ackbar 27
   'https://imgur.com/R3F3LnB.png', # mon mothma 28
-  'https://imgur.com/RQ6yHFg.png',  # arvel crynyd 29
-  'https://imgur.com/jDhVXQy.png',  #  wicket 30
+  'https://imgur.com/RQ6yHFg.png', # arvel crynyd 29
+  'https://imgur.com/jDhVXQy.png', # wicket 30
   'https://imgur.com/6qamhZu.png', # nien numb 31
   'https://imgur.com/j5JaqM1.png', # qui gon 32
   'https://imgur.com/JJF7FRf.png', # nute gunray 33
@@ -220,19 +220,3 @@ def add_photo(request, profile_id):
       print('An error occured uploading file to S3')
       print(e)
   return redirect('detail')
-
-
-
-
-
-
-# @login_required
-# def profile_detail(request):
-#   profile = Profile.objects.filter(user=request.user)
-#   return render(request, 'profiles/detail.html', {'profile': profile})
-
-# @login_required
-# class CreateProfile(loginRequiredMixin, CreateView):
-#   model = Profile
-#   fields = ['name', 'species', 'hair_color', 'height', 'homeworld', 'about', ]
-#   # return render(request, 'main_app/profile/create_profile.html')

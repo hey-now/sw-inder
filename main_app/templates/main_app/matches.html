@@ -3,16 +3,16 @@
 {% block content %}
 
 <section class="container center-align">
-<h3>Find Your Match!</h3>
+  <h3>Find Your Match!</h3>
 
-  <div class="row ">
-    <div class="col s12 m6 offset-m2 l6 offset-l3">
-      <div class="card">
-        <div class="card-image">
+  <div class="row">
+    <div class="col s12 m6 offset-m2 l6 offset-l3 rounded">
+      <div class="card #ef9a9a red lighten-3">
+        <div class="card-image orange accent-2">
           <img src="{{ img_gen}}" height="400px">
-          <span class="card-title">Card Title</span>
-          <a href="{% url 'matches' %}" class="btn-floating halfway-fab waves-effect waves-light red">Skip</a>
-          <a class="btn-floating btn-large waves-effect waves-light blue pulse"><i class="material-icons">favorite</i></a>
+          <span class="card-title"></span>
+          <a href="{% url 'matches' %}" class="btn-floating halfway-fab waves-effect waves-light red pulse">EW!</a>
+          <!-- <a class="btn-floating btn-large waves-effect waves-light blue pulse"><i class="material-icons">favorite</i></a> -->
         </div>
         <div class="card-content">
           {{ name }} <br>
@@ -20,12 +20,12 @@
           Hair Color: {{ hair_color }} <br>
           Gender: {{ gender }} <br>
           Homeworld: {{ homeworld_name }}
+        </div>
       </div>
     </div>
   </div>
-</div>
-  </section>
+</section>
 
 
 
-{%  endblock %}
+{% endblock %}
