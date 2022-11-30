@@ -1,44 +1,57 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SW-INDER</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/acss/materialize.min.cssjax/libs/materialize/1.0.0/" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  
+
 </head>
+
 <body>
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper black lighten-3 z-depth-3">
         <ul>
-          <li><a href="{% url 'home' %}" ></a><img src="https://imgur.com/6fjLdq1.png" alt="" width="150px" height="63px"></a></li>
+          <li><a href="{% url 'home' %}"></a><img src="https://imgur.com/6fjLdq1.png" class="brand-logo center" alt=""
+              width="150px" height="63px"></a></li>
         </ul>
         <ul class="right">
-          <li><a href="{% url 'about' %}">About </a></li>
-          <li><a class="dropdown-trigger btn red" href="!#" data-target="dropdown1"><span class="material-symbols-outlined">menu</span></a></li>
-          <ul id="dropdown1" class="dropdown-content black">
+          <li><a class="dropdown-trigger btn #263238 blue-grey darken-4" href="!#" data-target="dropdown1"><span
+                class="material-symbols-outlined">menu</span></a></li>
+          <ul id="dropdown1" class="dropdown-content black  ">
+            <li><a class="grey-text" href="{% url 'home' %}">Home </a></li>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'detail' %}">View Profile </a></li>
-            <li><a href="{% url 'interest_create' %}">Interests </a></li>
-            <li><a href="{% url 'matches' %}">Matches </a></li>
-            <li><a href="{% url 'logout' %}">Log Out </a></li>
+            <li><a class="grey-text" href="{% url 'detail' %}">View Profile </a></li>
+            <li><a class="grey-text" href="{% url 'interest_create' %}">Interests </a></li>
+            <li><a class="grey-text" href="{% url 'matches' %}">Matches </a></li>
+            <li><a class="grey-text" href="{% url 'logout' %}">Log Out </a></li>
             {% else %}
-            <li> <a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Login</a></li>
+            <li> <a class="grey-text" href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a class="grey-text" href="{% url 'login' %}">Login</a></li>
             {% endif %}
           </ul>
         </ul>
@@ -52,55 +65,51 @@
   <footer>
   </footer>
 </body>
+
 </html>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
   var dropdowns = document.querySelectorAll('.dropdown-trigger')
-  for (var i = 0; i < dropdowns.length; i++){
+  for (var i = 0; i < dropdowns.length; i++) {
     M.Dropdown.init(dropdowns[i]);
   }
   var fixedAction = document.querySelectorAll('.fixed-action-btn')
-  for (var i = 0; i < fixedAction.length; i++){
+  for (var i = 0; i < fixedAction.length; i++) {
     M.FloatingActionButton.init(fixedAction[i]);
   }
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.parallax');
-    var instances = M.Parallax.init(elems, options);
-  });
 
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.fixed-action-btn');
     var instances = M.FloatingActionButton.init(elems, options);
   });
 
   const sectionHero = document.querySelector(".section-hero");
-const heroTitle = sectionHero.querySelector(".hero-title");
-const heroTitleClone = sectionHero.querySelector(".hero-title-clone");
-const heroImgWrapper = sectionHero.querySelector(".hero-img-wrapper");
-const speed = 1.1;
+  const heroTitle = sectionHero.querySelector(".hero-title");
+  const heroTitleClone = sectionHero.querySelector(".hero-title-clone");
+  const heroImgWrapper = sectionHero.querySelector(".hero-img-wrapper");
+  const speed = 1.1;
 
-window.addEventListener("load", setPos);
-window.addEventListener("resize", setPos);
+  window.addEventListener("load", setPos);
+  window.addEventListener("resize", setPos);
 
-function setPos() {
-  const { x: heroTitleX, y: heroTitleY } = heroTitle.getBoundingClientRect();
-  const {
-    x: heroImgWrapperX,
-    y: heroImgWrapperY
-  } = heroImgWrapper.getBoundingClientRect();
+  function setPos() {
+    const { x: heroTitleX, y: heroTitleY } = heroTitle.getBoundingClientRect();
+    const {
+      x: heroImgWrapperX,
+      y: heroImgWrapperY
+    } = heroImgWrapper.getBoundingClientRect();
 
-  heroTitleClone.style.top = `${heroTitleY - getSpeed() - heroImgWrapperY}px`;
-  heroTitleClone.style.left = `${heroTitleX - heroImgWrapperX}px`;
-}
+    heroTitleClone.style.top = `${heroTitleY - getSpeed() - heroImgWrapperY}px`;
+    heroTitleClone.style.left = `${heroTitleX - heroImgWrapperX}px`;
+  }
 
-window.addEventListener("scroll", function () {
-  const speed = `translateY(${getSpeed()}px)`;
-  heroTitle.style.transform = speed;
-  heroTitleClone.style.transform = speed;
-});
+  window.addEventListener("scroll", function () {
+    const speed = `translateY(${getSpeed()}px)`;
+    heroTitle.style.transform = speed;
+    heroTitleClone.style.transform = speed;
+  });
 
-function getSpeed() {
-  return this.pageYOffset * speed;
-}
-  </script>
+  function getSpeed() {
+    return this.pageYOffset * speed;
+  }
+</script>
